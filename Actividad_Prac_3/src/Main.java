@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
 /*
         Scanner sc = new Scanner(System.in);
 
@@ -20,7 +21,9 @@ public class Main {
 */
 
 
+
 /*
+
         Scanner sc = new Scanner(System.in);
 
         String apep, apem, nom;
@@ -52,6 +55,7 @@ public class Main {
 
 */
 
+
 /*        Scanner sc = new Scanner(System.in);
 
         int x;
@@ -68,22 +72,14 @@ public class Main {
         suma = suma + x;
 
         System.out.println("La suma es: "+suma);
-*/
 
-/*        Scanner sc = new Scanner(System.in);
+        */
 
-        String nombre;
 
-        System.out.print("Ingrese su nombre: ");
-        nombre = sc.nextLine();
 
-        String cadenas = nombre.toUpperCase();
-        System.out.print(cadenas+"\n");
-        System.out.print( "tiene: " +cadenas.length() + " caracteres");
+/*
 
-*/
-
-/*        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         int payaso= 112;
         int muñecas = 75;
@@ -107,7 +103,9 @@ public class Main {
 
 */
 
-/*        Scanner sc = new Scanner(System.in);
+
+/*
+        Scanner sc = new Scanner(System.in);
 
         String frace;
 
@@ -118,5 +116,6 @@ public class Main {
         System.out.println("(" + frase + ") = " + frase.reverse());
 
 */
+
     }
 }
