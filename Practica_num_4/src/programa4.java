@@ -6,7 +6,7 @@ public class programa4 {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Ingrese un numero: ");
+        System.out.println("Ingrese la frase o palabra: ");
         String frase = sc.nextLine();
 
         String palabraInvertida = new StringBuilder(frase).reverse().toString();
