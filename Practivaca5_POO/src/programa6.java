@@ -24,6 +24,6 @@ public class programa6 {
 
         sc.close();
         System.out.println("\nSaldo final: " + saldo);
-        
+
     }
 }
