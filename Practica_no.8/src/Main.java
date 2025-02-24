@@ -2,14 +2,14 @@ public class Main {
     public static void main(String[] args) {
 
         //Creamos Objeto = Instancia objeto
-        Spartan jefeMaestro = new Spartan();
-        Spartan reach = new Spartan();
+        Spartan jefeMaestro = new Spartan("Jonh", 100, 90, "Fusil de asalto");
+        Spartan reach = new Spartan("Emile", 100, 90, "Aguijoneador");
 
         //Asignamos los atributos del objeto
-        jefeMaestro.nombre = "Jonh ";
-        jefeMaestro.salud = 100;
-        jefeMaestro.escudo = 90;
-        jefeMaestro.armaPrincipal = "Fusil de asalto";
+        jefeMaestro.setNombre("Jonh");
+        jefeMaestro.setSalud(100);
+        jefeMaestro.setEscudo(90);
+        jefeMaestro.setArmaPrincipal("Fusil de asalto");
 
         //Usar sus metodos
         jefeMaestro.mostarInfo();
@@ -17,15 +17,19 @@ public class Main {
         jefeMaestro.recargarArma(65);
         jefeMaestro.correr(true);
 
-        reach.nombre = "Emile ";
-        reach.salud = 0;
-        reach.escudo = 0;
-        reach.armaPrincipal = "Aguijoneador";
+        reach.setNombre("Emile");
+        reach.setSalud(0);
+        reach.setEscudo(0);
+        reach.setArmaPrincipal("Aguijoneador");
 
         reach.mostarInfo();
         reach.atacar("Grunt");
         reach.recargarArma(10);
         reach.correr(false);
+
+        jefeMaestro.setNombre("José Ángel");
+        jefeMaestro.mostarInfo();
+        System.out.println(jefeMaestro.getNombre());
     }
 
 }
