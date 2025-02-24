@@ -1,15 +1,22 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import javax.swing.*;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        String lengthInput = JOptionPane.showInputDialog("Ingresa la longitud del password (8 por default):");
+        int length = 8;
+        try {
+            if (lengthInput != null && !lengthInput.isEmpty()) {
+                length = Integer.parseInt(lengthInput);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Entrada inválida. Se usará la longitud por defecto de 8 caracteres.");
         }
+
+        String mayusInput = JOptionPane.showConfirmDialog(null, "¿Incluir mayúsculas?:", "Opciones", JOptionPane.YES_NO_OPTION);
+        int includeSpecial = JOptionPane.showConfirmDialog(null, "¿Incluir caracteres especiales?", "Opciones", JOptionPane.YES_NO_OPTION);
+
+        password passwordObj = new password(length, mayusInput, includeSpecial == JOptionPane.YES_OPTION);
+        String password = passwordObj.generarPassword();
+        passwordObj.comprobar(password);
     }
 }
