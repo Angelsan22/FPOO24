@@ -3,10 +3,10 @@ import javax.swing.*;
 public class Caja_popular {
 
 
-    String titular;
-    int edad;
-    double saldo = 0;
-    String noCuenta;
+    private String titular;
+    private int edad;
+    private  double saldo = 0;
+    private String noCuenta;
 
     public Caja_popular(String noCuenta, String titular, int edad, double saldo) {
         String cuentaNoCuenta = noCuenta;
@@ -46,4 +46,46 @@ public class Caja_popular {
 
         }
     }
+
+
+    public Caja_popular(String titular, int edad, double saldo, String noCuenta) {
+        this.titular = titular;
+        this.edad = edad;
+        this.saldo = saldo;
+        this.noCuenta = noCuenta;
+    }
+
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    public String getTitular() {
+        return titular;
+    }
+
+    public void setTitular(String titular) {
+        this.titular = titular;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public String getNoCuenta() {
+        return noCuenta;
+    }
+
+    public void setNoCuenta(String noCuenta) {
+        this.noCuenta = noCuenta;
+    }
+
 }

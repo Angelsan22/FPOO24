@@ -1,22 +1,43 @@
 import javax.swing.*;
+import javax.swing.*;
+import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        String lengthInput = JOptionPane.showInputDialog("Ingresa la longitud del password (8 por default):");
-        int length = 8;
-        try {
-            if (lengthInput != null && !lengthInput.isEmpty()) {
-                length = Integer.parseInt(lengthInput);
+
+        System.out.println("Angel Sanchez");
+        int largo;
+        String caracterEspecial;
+        String mayusculas;
+        String opc;
+        String password;
+
+        password pas = new password(8, "°!#$%&/()=?¡'¿´+¨*{}[]^`,.-;:_", "QWERTYUIOPASDFGHJKLÑZXCVBNM", " " );
+
+        do {
+
+            opc= JOptionPane.showInputDialog("1 para continuar, 2 para verificar, 3 para salir");
+            if (opc.equals("1")) {
+                largo=Integer.parseInt(JOptionPane.showInputDialog("ingresa el tamaño de la contraseña"));
+                pas.verificarlargo(largo);
+
+                caracterEspecial=JOptionPane.showInputDialog("ingrese el caracter especial que desea que contenga su contraseña");
+                pas.verificarcaracteresespeciales(caracterEspecial);
+
+                mayusculas=JOptionPane.showInputDialog("ingrese la letra mayuscula que desea que contenga");
+                pas.verificarmayusculas(mayusculas);
+
+                password = pas.generarPassword(largo,caracterEspecial,mayusculas);
+                JOptionPane.showMessageDialog(null, password);
+
+            }else if(opc.equals("2")) {
+                password=JOptionPane.showInputDialog("ingresa la contraseña:");
+                pas.verificarseguridad(password);
             }
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Entrada inválida. Se usará la longitud por defecto de 8 caracteres.");
-        }
 
-        String mayusInput = JOptionPane.showConfirmDialog(null, "¿Incluir mayúsculas?:", "Opciones", JOptionPane.YES_NO_OPTION);
-        int includeSpecial = JOptionPane.showConfirmDialog(null, "¿Incluir caracteres especiales?", "Opciones", JOptionPane.YES_NO_OPTION);
+        }while (!opc.equals("3"));
 
-        password passwordObj = new password(length, mayusInput, includeSpecial == JOptionPane.YES_OPTION);
-        String password = passwordObj.generarPassword();
-        passwordObj.comprobar(password);
+        JOptionPane.showMessageDialog(null,"saliendo");
+
     }
 }

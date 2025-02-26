@@ -5,11 +5,6 @@ public class Main {
         Spartan jefeMaestro = new Spartan("Jonh", 100, 90, "Fusil de asalto");
         Spartan reach = new Spartan("Emile", 100, 90, "Aguijoneador");
 
-        //Asignamos los atributos del objeto
-        jefeMaestro.setNombre("Jonh");
-        jefeMaestro.setSalud(100);
-        jefeMaestro.setEscudo(90);
-        jefeMaestro.setArmaPrincipal("Fusil de asalto");
 
         //Usar sus metodos
         jefeMaestro.mostarInfo();

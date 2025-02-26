@@ -1,56 +1,109 @@
-import javax.swing.*;
-import java.security.SecureRandom;
+import javax.swing.JOptionPane;
+import java.util.Random;
 
 public class password {
 
-    private int longitud;
+    private int largo;
+    private String caracteresEspeciales;
     private String mayusculas;
-    private boolean caractEspeciales;
+    private String password;
 
-    private static final String LOWERCASE = "abcdefghijklmnopqrstuvwxyz";
-    private static final String UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    private static final String NUMBERS = "0123456789";
-    private static final String SPECIALS = "!@#$%^&*()-_=+<>?";
 
-    public password(int length, String mayusInput, boolean b) {
+    public void verificarlargo(int largo){
+        if(largo>0 && largo <=8){
+            JOptionPane.showMessageDialog(null, "El tamaño esta bien:");
+
+        }else {
+            JOptionPane.showMessageDialog(null, "no es un buen tamaño:");
+        }
+    }
+    public void verificarcaracteresespeciales(String caracteresEspeciales){
+        if(caracteresEspeciales.isEmpty()){
+            JOptionPane.showMessageDialog(null, "ingrese una cracater especial:");
+        }else {
+            JOptionPane.showMessageDialog(null, "el caracter especial es correcto:");
+        }
+    }
+    public void verificarmayusculas(String mayusculas){
+        if(!mayusculas.matches("[A-Z]")){
+            JOptionPane.showMessageDialog(null, "Ingrese una letr:");
+
+        }else{
+            JOptionPane.showMessageDialog(null, "el mayuscula es correcto:");
+        }
     }
 
-    public void Password(int longitud, String mayusculas, boolean caractEspeciales){
-        this.longitud = longitud;
-        this.mayusculas = mayusculas;
-        this.caractEspeciales = caractEspeciales;
-    }
-
-    public String generarPassword() {
-        String charPool = LOWERCASE + NUMBERS;
-        if (mayusculas.equalsIgnoreCase("si")) {
-            charPool += UPPERCASE;
-        }
-        if (caractEspeciales) {
-            charPool += SPECIALS;
-        }
-
-        SecureRandom random = new SecureRandom();
+    public String generarPassword(int largo,String caracteresEspeciales,String mayusculas) {
+        Random rand = new Random();
         StringBuilder password = new StringBuilder();
-
-        for (int i = 0; i < longitud; i++) {
-            password.append(charPool.charAt(random.nextInt(charPool.length())));
+        for (int i = 0; i < largo - 2; i++) {
+            char randomChar = (char) (rand.nextInt(26) + 'a');
+            password.append(randomChar);
         }
+
+        password.insert(rand.nextInt(password.length() + 1), caracteresEspeciales);
+        password.insert(rand.nextInt(password.length() + 1), mayusculas);
+
 
         return password.toString();
     }
+    public void verificarseguridad(String password){
+        boolean seguridadValido = true;
 
-    public void comprobar(String password) {
-        String strength;
-        if (password.length() >= 12 && password.matches(".*[A-Z].*") && password.matches(".*[!@#$%^&*()-_=+<>?].*")) {
-            strength = "Fuerte";
-        } else if (password.length() >= 8) {
-            strength = "Moderada";
-        } else {
-            strength = "Débil";
+        for (int i = 0; i < password.length(); i++) {
+            if (Character.isUpperCase(password.charAt(i))) {
+                seguridadValido=true;
+                break;
+            }
         }
-        JOptionPane.showMessageDialog(null, "Password generado: " + password + "\nFortaleza: " + strength);
+        if(seguridadValido){
+            JOptionPane.showMessageDialog(null, "es segura");
+        }else {
+            JOptionPane.showMessageDialog(null, "no es seguridad");
+        }
+
     }
+
+    public password(int largo, String caracteresEspeciales, String mayusculas, String password) {
+        this.largo = largo;
+        this.caracteresEspeciales = caracteresEspeciales;
+        this.mayusculas = mayusculas;
+        this.password = password;
+    }
+
+    public int getLargo() {
+        return largo;
+    }
+
+    public void setLargo(int largo) {
+        this.largo = largo;
+    }
+
+    public String getCaracteresEspeciales() {
+        return caracteresEspeciales;
+    }
+
+    public void setCaracteresEspeciales(String caracteresEspeciales) {
+        this.caracteresEspeciales = caracteresEspeciales;
+    }
+
+    public String getMayusculas() {
+        return mayusculas;
+    }
+
+    public void setMayusculas(String mayusculas) {
+        this.mayusculas = mayusculas;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+
 
 }
 
