@@ -26,6 +26,7 @@ public class Spartan {
     }
 
     public void atacar(String enemigo){
+
         System.out.println(nombre + "atacar a " + enemigo + " con " + armaPrincipal);
     }
 
@@ -45,6 +46,7 @@ public class Spartan {
     }
 
     private void consultaCortana(){
+
         System.out.println("Conversacion privada................");
     }
 
