@@ -14,8 +14,12 @@ public class veiculo {
 
         capasidad_carga = JOptionPane.showInputDialog(null,"Ingrese la capacidad del veiculo(KG)");
 
-        JOptionPane.showMessageDialog(null, "placa: " + placa + "\n" + "Modelo del carro: " + modelo + "\n" + "Capasidad " + capasidad_carga + " KG");
     }
+
+    public String getInfo() {
+        return "Vehículo:\nPlaca: " + placa + "\nModelo: " + modelo + "\nCapacidad de carga: " + capasidad_carga + " KG\n";
+    }
+
 
     public veiculo(String capasidad_carga, String modelo, String placa) {
         this.capasidad_carga = capasidad_carga;

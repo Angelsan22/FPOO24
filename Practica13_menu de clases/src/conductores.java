@@ -14,7 +14,10 @@ public class conductores {
 
         licencia = Integer.parseInt(JOptionPane.showInputDialog(null, "ingrese la licencia del conductor: "));
 
-        JOptionPane.showMessageDialog(null, "Conductor: " + nombre + "\n" + "Identificacion: " + identificacion + "Licencia: " + licencia);
+    }
+
+    public String getInfo() {
+        return "Conductor:\nNombre: " + nombre + "\nIdentificación: " + identificacion + "\nLicencia: " + licencia + "\n";
     }
 
 
