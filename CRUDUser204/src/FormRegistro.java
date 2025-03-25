@@ -46,11 +46,12 @@ public class FormRegistro extends javax.swing.JFrame {
         txtCorreo = new javax.swing.JTextField();
         txtcontrasena = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 153));
         jLabel1.setText("Registro de usuarios");
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
