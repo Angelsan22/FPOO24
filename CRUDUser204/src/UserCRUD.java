@@ -68,4 +68,43 @@ public class UserCRUD {
             
     }// fin obtener todos
     
+    public boolean Updateusuarios(int id,String nombre,String correo,String contrasena){
+        
+        String sqlActualizar = "UPDATE usuarios SET Nombre = ?, Correo = ?, Contraseña = ? WHERE idUsuarios =?";
+        try(PreparedStatement ps = conexion.prepareStatement(sqlActualizar)){
+           
+            
+           ps.setInt(4, id);
+           ps.setString(1, nombre);
+           ps.setString(2, correo);
+           ps.setString(3, contrasena);
+          
+           
+            return ps.executeUpdate()>0;
+           
+            
+        }catch(SQLException e){
+            System.out.println("Error al intentar actualizar el usuaraio:" + e.getMessage());
+            return false;
+        }// fin actualizar
+        
+    }
+    
+    public boolean dropusuarios(int id){
+    
+    String sqlEliminar = "DELETE FROM usuarios WHERE idUsuarios = ?";
+        try(PreparedStatement ps = conexion.prepareStatement(sqlEliminar)){
+               
+           ps.setInt(1, id);
+             
+            return ps.executeUpdate()>0;
+           
+            
+        }catch(SQLException e){
+            System.out.println("Error al intentar eliminar el usuaraio:" + e.getMessage());
+            return false;
+        }// fin actualizar
+        
+    }
+
 }
